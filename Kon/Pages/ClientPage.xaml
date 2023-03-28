@@ -1,0 +1,49 @@
+﻿<Page x:Class="Kon.Pages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kon.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="ClientPage">
+
+    <Grid>
+        <DataGrid x:Name="dgClient"
+                  Height="250"
+                  Width="600"
+                  Margin="0 0 0 50"
+                  AutoGenerateColumns="False" SelectedItem="{Binding SelectedClient}"
+                  ItemsSource="{Binding View}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Номер" Width="50"/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="80"/>
+                <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="80"/>
+                <DataGridTextColumn Binding="{Binding BirthDay}" Header="Дата рождения" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Email}" Header="Почта" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Телефон" Width="80"/>
+                <DataGridTextColumn Binding="{Binding IdAuthorization}" Header="Номер авторизации" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDelete"
+                Content="Удалить"
+                Height="30"
+                Width="100"
+                Margin="0 270 440 0" Click="btnDelete_Click">
+
+        </Button>
+        <Button x:Name="btnEdit"
+                Content="Изменить"
+                Height="30"
+                Width="100"
+                Margin="0 270 0 0" Click="btnEdit_Click">
+        </Button>
+        <Button x:Name="btnAdd"
+                Content="Добавить"
+                Height="30"
+                Width="100"
+                Margin="400 270 0 0" Click="btnAdd_Click">
+        </Button>
+    </Grid>
+</Page>

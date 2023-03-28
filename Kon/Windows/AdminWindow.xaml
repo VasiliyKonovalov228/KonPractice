@@ -7,6 +7,84 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="btnMat"
+                Content="Список материалов"
+                Height="50"
+                Width="150"
+                Margin="50 50 550 300" 
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnEqui"
+                Content="Список оборудования"
+                Height="50"
+                Width="150"
+                Margin="250 50 350 300"
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnEmp"
+                Content="Список сотрудников"
+                Height="50"
+                Width="150"
+                Margin="300 50 0 300"
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnPost"
+                Content="Список должностей"
+                Height="50"
+                Width="150"
+                Margin="50 50 550 150"
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnDraw"
+                Content="Список чертежей"
+                Height="50"
+                Width="150"
+                Margin="250 50 350 150"
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnClient"
+                Content="Список клиентов"
+                Height="50"
+                Width="150"
+                Margin="300 50 0 150"
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnOrder"
+                Content="Список заказов"
+                Height="50"
+                Width="150"
+                Margin="50 100 550 50" 
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnAuth"
+                Content="Список авторизации"
+                Height="50"
+                Width="150"
+                Margin="250 100 350 50"
+                Click="btnItemSorce_Click">
+        </Button>
+        <Button x:Name="btnSup"
+                Content="Список поставщиков"
+                Height="50"
+                Width="150"
+                Margin="300 100 0 50"
+                Click="btnItemSorce_Click">
+        </Button>
         
+        <Button x:Name="btnBack"
+                Content="Назад"
+                Height="20"
+                Width="100" Margin="0 0 680 380"
+                Visibility="Hidden" Click="btnBack_Click"
+                >
+
+        </Button>
+        <Frame x:Name="mainFrame"
+                  Height="350"
+                  Width="600"
+                  Margin="0 0 50 40"
+                  Visibility="Hidden"
+                  NavigationUIVisibility="Hidden">
+        </Frame>
     </Grid>
 </Window>

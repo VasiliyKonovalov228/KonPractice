@@ -12,6 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Active" Type="bit" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -134,7 +135,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Discription" Type="nvarchar" MaxLength="200" />
-          <Property Name="Salary" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="Salary" Type="decimal" Precision="9" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -596,6 +597,7 @@
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="KonVasModel.FK_Client_Authorization" FromRole="Authorization" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="KonVasModel.FK_Employee_Authorization" FromRole="Authorization" ToRole="Employee" />
+          <Property Name="Active" Type="Boolean" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -705,7 +707,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Discription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Salary" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="Salary" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__IdPost__3F466844" FromRole="Post" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Supplier">
@@ -1049,6 +1051,7 @@
           <EntitySetMapping Name="Authorization">
             <EntityTypeMapping TypeName="KonVasModel.Authorization">
               <MappingFragment StoreEntitySet="Authorization">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

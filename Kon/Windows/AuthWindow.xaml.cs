@@ -59,18 +59,22 @@ namespace Kon.Windows
 
                 if (authUser != null)
                 {
-                    //string connectionString = @"Data Source=224-10\SQLEXPRESS;Initial Catalog=KonVas;Integrated Security=True";
-                    
-                    //using (SqlConnection connection = new SqlConnection(connectionString))
-                    //{
-                    //    connection.Open();
-                    //        string sqlExpression = "SELECT Id FROM Client WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
-                    //        SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    //       if (command.ExecuteScalar().ToString()!=null)
-                    //    {
-                            MainWindow main = new MainWindow();
-                            main.Show();
-                            this.Close();
+                    if (authUser.Active!=false)
+                    {
+
+
+                        //string connectionString = @"Data Source=224-10\SQLEXPRESS;Initial Catalog=KonVas;Integrated Security=True";
+
+                        //using (SqlConnection connection = new SqlConnection(connectionString))
+                        //{
+                        //    connection.Open();
+                        //        string sqlExpression = "SELECT Id FROM Client WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
+                        //        SqlCommand command = new SqlCommand(sqlExpression, connection);
+                        //       if (command.ExecuteScalar().ToString()!=null)
+                        //    {
+                        MainWindow main = new MainWindow();
+                        main.Show();
+                        this.Close();
                         //}
                         //string sqlExpression2 = "SELECT Id FROM Employee WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
                         //SqlCommand command2 = new SqlCommand(sqlExpression2, connection);
@@ -80,7 +84,12 @@ namespace Kon.Windows
                         //    admin.Show();
                         //    this.Close();
                         //}
-                    //}
+                        //}
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вам запретили вход в систему");
+                    }
                     
                 }
                 else

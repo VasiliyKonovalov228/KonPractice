@@ -14,26 +14,34 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static Kon.ClassHalper.EFClass;
-using Kon.Windows;
-using Kon.DB;
 
-namespace Kon
+
+namespace Kon.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для OrderPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrderPage : Page
     {
-        public MainWindow()
+        public OrderPage()
         {
             InitializeComponent();
-            GetDrawing();
+            dgOrder.ItemsSource = context.Order.ToList();
         }
-        private void GetDrawing()
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            List<DB.Drawing> DrawList = new List<DB.Drawing>();
-            DrawList = context.Drawing.ToList();
-            LvDrawingList.ItemsSource = DrawList;
+
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
