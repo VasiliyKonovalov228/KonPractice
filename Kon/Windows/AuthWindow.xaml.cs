@@ -109,5 +109,10 @@ namespace Kon.Windows
         {
             GenerateCaptcha();
         }
+
+        private void tbCaptcha_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

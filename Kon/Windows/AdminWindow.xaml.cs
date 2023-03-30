@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kon.ClassHalper;
 using Kon.DB;
 using Kon.Pages;
 using static Kon.ClassHalper.EFClass;
@@ -29,6 +30,7 @@ namespace Kon.Windows
         public AdminWindow()
         {
             InitializeComponent();
+            EFClass.mainFrame = mainFrame;
            
         }
 

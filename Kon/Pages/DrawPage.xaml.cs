@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Kon.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,17 +32,42 @@ namespace Kon.Pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var remove = dgDraw.SelectedItems.Cast<DB.Drawing>().ToList();
+            if (MessageBox.Show("Вы точно хотите удалить выбранные элемениы", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
 
+                context.Drawing.RemoveRange(remove);
+                context.SaveChanges();
+                MessageBox.Show("Данные удалены");
+                dgDraw.ItemsSource = context.Drawing.ToList();
+
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Change = true;
+            AddEditDrawingPage addEditDrawing = new AddEditDrawingPage();
+            mainFrame.Navigate(addEditDrawing);
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            AddEditDrawingPage addEditDrawing = new AddEditDrawingPage();
+            mainFrame.Navigate(addEditDrawing);
+        }
 
+        private void dgDraw_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                TextBlock a = dgDraw.Columns[0].GetCellContent(dgDraw.Items[dgDraw.SelectedIndex]) as TextBlock;
+                IdChange = Convert.ToInt32(a?.Text);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
         }
     }
 }

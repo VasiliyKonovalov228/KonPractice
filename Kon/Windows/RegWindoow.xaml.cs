@@ -90,5 +90,10 @@ namespace Kon.Windows
             context.SaveChanges();
             MessageBox.Show("Ok");
         }
+
+        private void tbLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

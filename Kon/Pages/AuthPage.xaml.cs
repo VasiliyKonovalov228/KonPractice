@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static Kon.ClassHalper.EFClass;
+using Kon.Windows;
+using Kon.ClassHalper;
+using Kon.DB;
 
 namespace Kon.Pages
 {
@@ -31,17 +34,44 @@ namespace Kon.Pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var remove = dgAuth.SelectedItems.Cast<Authorization>().ToList();
+            if (MessageBox.Show("Вы точно хотите удалить выбранные элемениы","Внимание",MessageBoxButton.YesNo,MessageBoxImage.Question)==MessageBoxResult.Yes)
+            {
+                
+                    context.Authorization.RemoveRange(remove);
+                    context.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    dgAuth.ItemsSource = context.Authorization.ToList();
+                
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Change = true;
+            AddEditAuthPage addEditAuthPage = new AddEditAuthPage();
+            mainFrame.Navigate(addEditAuthPage);
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            AddEditAuthPage addEditAuthPage = new AddEditAuthPage();
+            mainFrame.Navigate(addEditAuthPage);
+        }
 
+        private void dgAuth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                TextBlock a = dgAuth.Columns[0].GetCellContent(dgAuth.Items[dgAuth.SelectedIndex]) as TextBlock;
+                IdChange = Convert.ToInt32(a?.Text);
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+
+            }
+            
+            
         }
     }
 }

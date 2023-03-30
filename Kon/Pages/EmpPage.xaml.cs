@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Kon.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,17 +33,42 @@ namespace Kon.Pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var remove = dgEmp.SelectedItems.Cast<Employee>().ToList();
+            if (MessageBox.Show("Вы точно хотите удалить выбранные элемениы", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
 
+                context.Employee.RemoveRange(remove);
+                context.SaveChanges();
+                MessageBox.Show("Данные удалены");
+                dgEmp.ItemsSource = context.Employee.ToList();
+
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Change = true;
+            AddEditEmpPage addEditEmpPage = new AddEditEmpPage();
+            mainFrame.Navigate(addEditEmpPage);
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            AddEditEmpPage addEditEmpPage = new AddEditEmpPage();
+            mainFrame.Navigate(addEditEmpPage);
+        }
 
+        private void dgEmp_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                TextBlock a = dgEmp.Columns[0].GetCellContent(dgEmp.Items[dgEmp.SelectedIndex]) as TextBlock;
+                IdChange = Convert.ToInt32(a?.Text);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
         }
     }
 }

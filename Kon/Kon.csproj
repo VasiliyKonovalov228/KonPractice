@@ -142,6 +142,33 @@
     <Compile Include="DB\V_MatSupp.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddEditAuthPage.xaml.cs">
+      <DependentUpon>AddEditAuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditClient.xaml.cs">
+      <DependentUpon>AddEditClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditDrawingPage.xaml.cs">
+      <DependentUpon>AddEditDrawingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditEmpPage.xaml.cs">
+      <DependentUpon>AddEditEmpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditEquiPage.xaml.cs">
+      <DependentUpon>AddEditEquiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditMatPage.xaml.cs">
+      <DependentUpon>AddEditMatPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditOrderPage.xaml.cs">
+      <DependentUpon>AddEditOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditPostPage.xaml.cs">
+      <DependentUpon>AddEditPostPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AEditSupPage.xaml.cs">
+      <DependentUpon>AEditSupPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
@@ -175,6 +202,42 @@
     <Compile Include="Windows\RegWindoow.xaml.cs">
       <DependentUpon>RegWindoow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\AddEditAuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditDrawingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditEmpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditEquiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditMatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditPostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AEditSupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

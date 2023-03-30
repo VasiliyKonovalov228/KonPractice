@@ -14,12 +14,12 @@
                   Width="600"
                   Margin="0 0 0 50"
                   AutoGenerateColumns="False" SelectedItem="{Binding SelectedPsot}"
-                  ItemsSource="{Binding View}">
+                  ItemsSource="{Binding View}" SelectionChanged="dgPost_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Номер" Width="50"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Discription}" Header="Описание" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Salary}" Header="Описание" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Salary}" Header="Зарплата" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnDelete"

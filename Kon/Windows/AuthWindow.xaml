@@ -64,7 +64,7 @@
             <TextBox x:Name="tbCaptcha" 
                      Width="100"
                      Margin="0 10 100 0"
-                     Height="30"
+                     Height="30" TextChanged="tbCaptcha_TextChanged"
                      > 
             </TextBox>
             <TextBlock x:Name="tblCaptcha"

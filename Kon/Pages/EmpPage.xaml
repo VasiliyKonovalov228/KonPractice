@@ -14,7 +14,7 @@
                   Width="600"
                   Margin="0 0 0 50"
                   AutoGenerateColumns="False" SelectedItem="{Binding SelectedEmployee}"
-                  ItemsSource="{Binding View}">
+                  ItemsSource="{Binding View}" SelectionChanged="dgEmp_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Номер" Width="50"/>
                 <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="80"/>
