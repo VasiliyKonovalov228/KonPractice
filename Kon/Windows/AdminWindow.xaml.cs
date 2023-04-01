@@ -36,83 +36,64 @@ namespace Kon.Windows
 
         private void btnItemSorce_Click(object sender, RoutedEventArgs e)
         {
-            Button but = (Button)sender;
-            switch (but.Name) 
+            MenuItem item = (MenuItem)sender;
+            switch (item.Header) 
             {
-                case "btnMat":
-                    Hidd();
+                case "Материал":
                     MatPage matPage = new MatPage();
                    mainFrame.Navigate(matPage);
                     break;
-                case "btnEqui":
-                    Hidd();
+                case "Оборудование":
                     EquiPage equiPage = new EquiPage();
                     mainFrame.Navigate(equiPage);
                     break;
-                case "btnEmp":
-                    Hidd();
+                case "Сотрудник":
                     EmpPage empPage = new EmpPage();
                     mainFrame.Navigate(empPage);
                     break;
-                case "btnPost":
-                    Hidd();
+                case "Должность":
                     PostPage postPage = new PostPage();
                     mainFrame.Navigate(postPage);
                     break;
-                case "btnDraw":
-                    Hidd();
+                case "Чертёж":
                    DrawPage drawPage = new DrawPage();
                     mainFrame.Navigate(drawPage);
                     break;
-                case "btnClient":
-                    Hidd();
+                case "Клиент":
                     ClientPage cliePage = new ClientPage();
                     mainFrame.Navigate(cliePage);
                     break;
-                case "btnOrder":
-                    Hidd();
+                case "Заказ":
                     OrderPage ordePage = new OrderPage();
                     mainFrame.Navigate(ordePage);
                     break;
-                case "btnAuth":
-                    Hidd();
+                case "Авторизация":
                     AuthPage authPage = new AuthPage();
                     mainFrame.Navigate(authPage);
                     break;
-                case "btnSup":
-                    Hidd();
+                case "Поставщик":
                     SupPage supPage = new SupPage();
                     mainFrame.Navigate(supPage);
                     break;
+                case "Статистика":
+                    StatisticPage statisticPage = new StatisticPage();
+                    mainFrame.Navigate(statisticPage);
+                    break;
             }
         }
-        public void Hidd()
+
+        private void Window_Closed(object sender, EventArgs e)
         {
-            btnMat.Visibility = Visibility.Hidden;
-            btnEqui.Visibility = Visibility.Hidden;
-            btnPost.Visibility = Visibility.Hidden;
-            btnDraw.Visibility = Visibility.Hidden;
-            btnClient.Visibility = Visibility.Hidden;
-            btnOrder.Visibility = Visibility.Hidden;
-            btnAuth.Visibility = Visibility.Hidden;
-            btnEmp.Visibility = Visibility.Hidden;
-            btnSup.Visibility = Visibility.Hidden;
-            mainFrame.Visibility = Visibility.Visible;
-            btnBack.Visibility = Visibility.Visible;
-        }
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            btnMat.Visibility = Visibility.Visible;
-            btnEqui.Visibility = Visibility.Visible;
-            btnPost.Visibility = Visibility.Visible;
-            btnDraw.Visibility = Visibility.Visible;
-            btnClient.Visibility = Visibility.Visible;
-            btnOrder.Visibility = Visibility.Visible;
-            btnEmp.Visibility = Visibility.Visible;
-            btnAuth.Visibility = Visibility.Visible;
-            btnSup.Visibility = Visibility.Visible;
-            mainFrame.Visibility = Visibility.Hidden;
-            btnBack.Visibility = Visibility.Hidden;
+            
+                Log log = new Log();
+                log.Date = Date.ToString("d");
+                log.LoginTime = Login.ToString().Substring(0, 8);
+                log.LogoutTime = DateTime.Now.TimeOfDay.ToString().Substring(0, 8);
+                log.TimeSpentOnSystem = (DateTime.Now.TimeOfDay - Login).ToString().Substring(1, 7);
+                log.IdAthorization = IdAuthorization;
+                context.Log.Add(log);
+                context.SaveChanges();
+            
         }
     }
 }

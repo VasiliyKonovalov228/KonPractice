@@ -73,5 +73,14 @@ namespace Kon.Pages
 
             }
         }
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgMat.ItemsSource = context.Material.ToList();
+                return;
+            }
+            dgMat.ItemsSource = context.Material.ToList().Where(i => i.Title.Contains(tbSearch.Text));
+        }
     }
 }

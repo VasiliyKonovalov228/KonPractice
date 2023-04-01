@@ -29,6 +29,7 @@ namespace Kon.Pages
         {
           
             InitializeComponent();
+            cmbActive.SelectedIndex= 0;
             if (Change==true)
             {
                 Change = false;
@@ -36,6 +37,15 @@ namespace Kon.Pages
                    authorization.Id = context.Authorization.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Id;
                    tbLogin.Text = context.Authorization.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Login.ToString();
                    tbPass.Text = context.Authorization.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Password.ToString();
+                if (context.Authorization.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Active==true)
+                {
+                    cmbActive.SelectedIndex = 0;
+                }
+                else if (context.Authorization.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Active == false)
+                {
+                    cmbActive.SelectedIndex = 1;
+                }
+                
                  
             }
         }
@@ -56,10 +66,24 @@ namespace Kon.Pages
             
             authorization.Login = tbLogin.Text;
             authorization.Password= tbPass.Text;
-          
+            if (cmbActive.SelectedIndex==0)
+            {
+                authorization.Active = true;
+            }
+            else
+            {
+                authorization.Active = false;
+            }
+            
             context.Authorization.AddOrUpdate(authorization);
             context.SaveChanges();
             MessageBox.Show("Успешно");
+            AuthPage authPage = new AuthPage();
+            mainFrame.Navigate(authPage);
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
             AuthPage authPage = new AuthPage();
             mainFrame.Navigate(authPage);
         }

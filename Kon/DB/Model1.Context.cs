@@ -15,10 +15,10 @@ namespace Kon.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class Entitie : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entitie()
+            : base("name=Entitie")
         {
         }
     
@@ -33,6 +33,7 @@ namespace Kon.DB
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Equipment> Equipment { get; set; }
         public virtual DbSet<EquipmentOrder> EquipmentOrder { get; set; }
+        public virtual DbSet<Log> Log { get; set; }
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<MaterialOrder> MaterialOrder { get; set; }
         public virtual DbSet<Order> Order { get; set; }

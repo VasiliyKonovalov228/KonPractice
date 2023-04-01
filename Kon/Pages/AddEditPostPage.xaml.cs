@@ -61,5 +61,11 @@ namespace Kon.Pages
             PostPage postPage = new PostPage();
             mainFrame.Navigate(postPage);
         }
+        
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            PostPage postPage = new PostPage();
+            mainFrame.Navigate(postPage);
+        }
     }
 }

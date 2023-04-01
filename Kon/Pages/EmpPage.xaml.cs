@@ -29,6 +29,8 @@ namespace Kon.Pages
         {
             InitializeComponent();
             dgEmp.ItemsSource = context.Employee.ToList();
+            cmbPost.ItemsSource= context.Post.ToList();
+            cmbPost.DisplayMemberPath = "Title";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -69,6 +71,30 @@ namespace Kon.Pages
             {
 
             }
+        }
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgEmp.ItemsSource = context.Employee.ToList();
+                return;
+            }
+            dgEmp.ItemsSource = context.Employee.ToList().Where(i => i.LastName.Contains(tbSearch.Text));
+        }
+
+        private void tbSearchPhone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearchPhone.Text))
+            {
+                dgEmp.ItemsSource = context.Employee.ToList();
+                return;
+            }
+            dgEmp.ItemsSource = context.Employee.ToList().Where(i => i.Phone.Contains(tbSearchPhone.Text));
+        }
+
+        private void cmbPost_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dgEmp.ItemsSource=context.Employee.ToList().Where(i=> i.IdPost==(cmbPost.SelectedItem as Post).Id);
         }
     }
 }

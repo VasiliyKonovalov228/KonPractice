@@ -59,5 +59,11 @@ namespace Kon.Pages
             EquiPage equiPage = new EquiPage();
             mainFrame.Navigate(equiPage);
         }
+         
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            AuthPage authPage = new AuthPage();
+            mainFrame.Navigate(authPage);
+        }
     }
 }

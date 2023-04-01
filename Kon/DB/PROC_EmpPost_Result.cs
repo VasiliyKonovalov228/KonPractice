@@ -21,5 +21,6 @@ namespace Kon.DB
         public string Email { get; set; }
         public string Phone { get; set; }
         public int IdPost { get; set; }
+        public Nullable<int> IdAuthorization { get; set; }
     }
 }

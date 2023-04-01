@@ -32,6 +32,7 @@ namespace Kon.Pages
             cmbClient.ItemsSource = context.Client.ToList();
             cmbClient.SelectedIndex = 0;
             cmbClient.DisplayMemberPath = "LastName";
+
             if (Change == true)
             {
                 Change = false;
@@ -78,6 +79,12 @@ namespace Kon.Pages
 
 
             OrderPage orderPage = new OrderPage();
+            mainFrame.Navigate(orderPage);
+        }
+         
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            OrderPage orderPage =new OrderPage();
             mainFrame.Navigate(orderPage);
         }
     }

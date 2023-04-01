@@ -29,6 +29,8 @@ namespace Kon.Pages
         {
             InitializeComponent();
             dgOrder.ItemsSource = context.Order.ToList();
+            cmbClient.ItemsSource = context.Client.ToList();
+            cmbClient.DisplayMemberPath = "LastName";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -69,6 +71,11 @@ namespace Kon.Pages
             {
 
             }
+        }
+
+        private void cmbClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dgOrder.ItemsSource = context.Order.ToList().Where(i => i.IdClient == (cmbClient.SelectedItem as Client).Id);
         }
     }
 }

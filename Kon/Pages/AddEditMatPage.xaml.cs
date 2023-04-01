@@ -58,6 +58,12 @@ namespace Kon.Pages
             MatPage matPage = new MatPage();
             mainFrame.Navigate(matPage);
         }
+        
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+           MatPage matPage = new MatPage();
+            mainFrame.Navigate(matPage);
+        }
     }
 
 }

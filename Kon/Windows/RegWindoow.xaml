@@ -138,7 +138,7 @@
                 TextAlignment="Center"
                 FontSize="10"
                 VerticalAlignment="Center"
-                HorizontalAlignment="Center" TextChanged="tbLogin_TextChanged">
+                HorizontalAlignment="Center" >
             </TextBox>
             <TextBlock
                 Height="20"

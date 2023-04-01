@@ -89,5 +89,12 @@
                 Width="100"
                 Margin="0 300 0 0" Click="btnEdit_Click" >
             </Button>
+        <Button x:Name="btnBack"
+                Content="Назад"
+                Height="30"
+                Width="100"
+                Margin="0 300 400 0" Click="btnBack_Click" >
+        </Button>
+        
     </Grid>
 </Page>

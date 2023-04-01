@@ -39,7 +39,7 @@ namespace Kon.Pages
                 context.Supplier.RemoveRange(remove);
                 context.SaveChanges();
                 MessageBox.Show("Данные удалены");
-                dgSup.ItemsSource = context.Equipment.ToList();
+                dgSup.ItemsSource = context.Supplier.ToList();
 
             }
         }
@@ -68,6 +68,25 @@ namespace Kon.Pages
             {
 
             }
+        }
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgSup.ItemsSource = context.Supplier.ToList();
+                return;
+            }
+            dgSup.ItemsSource = context.Supplier.ToList().Where(i => i.Title.Contains(tbSearch.Text));
+        }
+
+        private void tbSearchAddress_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearchAddress.Text))
+            {
+                dgSup.ItemsSource = context.Supplier.ToList();
+                return;
+            }
+            dgSup.ItemsSource = context.Supplier.ToList().Where(i => i.Address.Contains(tbSearchAddress.Text));
         }
     }
 }

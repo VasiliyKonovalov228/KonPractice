@@ -62,5 +62,11 @@ namespace Kon.Pages
             DrawPage drawPage = new DrawPage();
             mainFrame.Navigate(drawPage);
         }
+         
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            DrawPage drawPage = new DrawPage();
+            mainFrame.Navigate(drawPage);
+        }
     }
 }

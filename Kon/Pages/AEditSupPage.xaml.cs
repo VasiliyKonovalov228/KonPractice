@@ -77,5 +77,11 @@ namespace Kon.Pages
             SupPage supPage = new SupPage();
             mainFrame.Navigate(supPage);
         }
+        
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            SupPage supPage = new SupPage();
+            mainFrame.Navigate(supPage);
+        }
     }
 }

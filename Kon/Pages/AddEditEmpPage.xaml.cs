@@ -86,5 +86,11 @@ namespace Kon.Pages
             EmpPage emp = new EmpPage();
             mainFrame.Navigate(emp);
         }
+         
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            EmpPage emp = new EmpPage();
+            mainFrame.Navigate(emp);
+        }
     }
 }

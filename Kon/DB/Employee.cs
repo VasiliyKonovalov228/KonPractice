@@ -30,9 +30,9 @@ namespace Kon.DB
         public int IdPost { get; set; }
         public Nullable<int> IdAuthorization { get; set; }
     
+        public virtual Authorization Authorization { get; set; }
         public virtual Post Post { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
-        public virtual Authorization Authorization { get; set; }
     }
 }

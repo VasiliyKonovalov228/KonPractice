@@ -69,5 +69,14 @@ namespace Kon.Pages
 
             }
         }
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgPost.ItemsSource = context.Post.ToList();
+                return;
+            }
+            dgPost.ItemsSource = context.Post.ToList().Where(i => i.Title.Contains(tbSearch.Text));
+        }
     }
 }

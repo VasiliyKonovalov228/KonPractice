@@ -78,6 +78,7 @@ namespace Kon.Windows
             DB.Authorization auth = new DB.Authorization();
             auth.Login = tbLogin.Text;
             auth.Password = pbPass.Password;
+            auth.Active= true;
             DB.Client client = new DB.Client();
             client.FirstName = tbFname.Text;
             client.LastName = tbLname.Text;
@@ -89,11 +90,6 @@ namespace Kon.Windows
             context.Client.Add(client);
             context.SaveChanges();
             MessageBox.Show("Ok");
-        }
-
-        private void tbLogin_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

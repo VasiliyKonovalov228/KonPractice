@@ -70,5 +70,24 @@ namespace Kon.Pages
 
             }
         }
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgClient.ItemsSource = context.Client.ToList();
+                return;
+            }
+            dgClient.ItemsSource = context.Client.ToList().Where(i => i.LastName.Contains(tbSearch.Text));
+        }
+
+        private void tbSearchPhone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearchPhone.Text))
+            {
+                dgClient.ItemsSource = context.Client.ToList();
+                return;
+            }
+            dgClient.ItemsSource = context.Client.ToList().Where(i => i.Phone.Contains(tbSearchPhone.Text));
+        }
     }
 }

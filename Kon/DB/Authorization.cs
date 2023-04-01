@@ -19,6 +19,7 @@ namespace Kon.DB
         {
             this.Client = new HashSet<Client>();
             this.Employee = new HashSet<Employee>();
+            this.Log = new HashSet<Log>();
         }
     
         public int Id { get; set; }
@@ -30,5 +31,7 @@ namespace Kon.DB
         public virtual ICollection<Client> Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Log> Log { get; set; }
     }
 }

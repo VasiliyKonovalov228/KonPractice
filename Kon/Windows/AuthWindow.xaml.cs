@@ -28,6 +28,7 @@ namespace Kon.Windows
         public Auth()
         {
             InitializeComponent();
+            Date=DateTime.Now;
             GenerateCaptcha();
             
         }
@@ -63,28 +64,35 @@ namespace Kon.Windows
                     {
 
 
-                        //string connectionString = @"Data Source=224-10\SQLEXPRESS;Initial Catalog=KonVas;Integrated Security=True";
+                        string connectionString = @"Data Source=224-10\SQLEXPRESS;Initial Catalog=KonVas;Integrated Security=True";
 
-                        //using (SqlConnection connection = new SqlConnection(connectionString))
-                        //{
-                        //    connection.Open();
-                        //        string sqlExpression = "SELECT Id FROM Client WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
-                        //        SqlCommand command = new SqlCommand(sqlExpression, connection);
-                        //       if (command.ExecuteScalar().ToString()!=null)
-                        //    {
-                        MainWindow main = new MainWindow();
-                        main.Show();
-                        this.Close();
-                        //}
-                        //string sqlExpression2 = "SELECT Id FROM Employee WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
-                        //SqlCommand command2 = new SqlCommand(sqlExpression2, connection);
-                        //if (command2.ExecuteScalar().ToString() != null)
-                        //{
-                        //    AdminWindow admin = new AdminWindow();
-                        //    admin.Show();
-                        //    this.Close();
-                        //}
-                        //}
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            string sqlExpression = "SELECT Id FROM Client WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
+                            SqlCommand command = new SqlCommand(sqlExpression, connection);
+                            if (command.ExecuteScalar() != null)
+                            {
+                                MainWindow main = new MainWindow();
+                                main.Show();
+                                Login=DateTime.Now.TimeOfDay;
+                                IdAuthorization = authUser.Id;
+                                this.Close();
+                            }
+                            
+                            string sqlExpression2 = "SELECT Id FROM Employee WHERE IdAuthorization = (SELECT Id FROM [Authorization] WHERE Login='" + tbLogin.Text + "')";
+                            SqlCommand command2 = new SqlCommand(sqlExpression2, connection);
+                            if (command2.ExecuteScalar() != null)
+                            {
+                                AdminWindow admin = new AdminWindow();
+                                admin.Show();
+                                Login = DateTime.Now.TimeOfDay;
+                                IdAuthorization = authUser.Id;
+                                this.Close();
+                            }
+                            
+
+                        }
                     }
                     else
                     {

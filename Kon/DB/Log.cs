@@ -12,25 +12,16 @@ namespace Kon.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class Log
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
-        {
-            this.Order = new HashSet<Order>();
-        }
-    
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Patronymic { get; set; }
-        public System.DateTime BirthDay { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public Nullable<int> IdAuthorization { get; set; }
+        public string Date { get; set; }
+        public string LoginTime { get; set; }
+        public string LogoutTime { get; set; }
+        public string TimeSpentOnSystem { get; set; }
+        public string UnsuccessfulLogoutReason { get; set; }
+        public int IdAthorization { get; set; }
     
         public virtual Authorization Authorization { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
     }
 }

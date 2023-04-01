@@ -81,5 +81,11 @@ namespace Kon.Pages
             ClientPage clientPage = new ClientPage();
             mainFrame.Navigate(clientPage);
         }
+        
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            ClientPage clientPage = new ClientPage();
+            mainFrame.Navigate(clientPage);
+        }
     }
 }

@@ -9,10 +9,26 @@
       Title="MatPage">
 
     <Grid>
+        <TextBlock
+                Height="20"
+                Width="60"
+                Text="Название"
+                FontSize="14" 
+                Margin="0 20 520 300"
+               >
+        </TextBlock>
+        <TextBox
+                x:Name="tbSearch"
+                Height="30"
+                Width="100"
+                FontSize="10"
+                Margin="0 0 340 280" TextChanged="tbSearch_TextChanged" 
+                >
+        </TextBox>
         <DataGrid x:Name="dgMat"
                   Height="250"
                   Width="600"
-                  Margin="0 0 0 50"
+                  Margin="0 20 0 0"
                   AutoGenerateColumns="False" SelectedItem="{Binding SelectedMaterial}"
                   ItemsSource="{Binding View}" SelectionChanged="dgMat_SelectionChanged" >
             <DataGrid.Columns>
@@ -25,20 +41,20 @@
                 Content="Удалить"
                 Height="30"
                 Width="100"
-                Margin="0 270 440 0" Click="btnDelete_Click">
+                Margin="0 310 440 0" Click="btnDelete_Click">
             
         </Button>
         <Button x:Name="btnEdit"
                 Content="Изменить"
                 Height="30"
                 Width="100"
-                Margin="0 270 0 0" Click="btnEdit_Click">
+                Margin="0 310 0 0" Click="btnEdit_Click">
         </Button>
         <Button x:Name="btnAdd"
                 Content="Добавить"
                 Height="30"
                 Width="100"
-                Margin="400 270 0 0" Click="btnAdd_Click">
+                Margin="400 310 0 0" Click="btnAdd_Click">
         </Button>
     </Grid>
 </Page>

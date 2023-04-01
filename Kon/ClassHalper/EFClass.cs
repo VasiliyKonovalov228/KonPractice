@@ -10,9 +10,12 @@ namespace Kon.ClassHalper
 {
     public class EFClass
     {
-        public static Entities context { get; } = new Entities();
+        public static Entitie context { get; } = new Entitie();
         public static Frame mainFrame { get; set; }
         public static int IdChange = 0;
         public static bool Change=false;
+        public static DateTime Date;
+        public static TimeSpan Login;
+        public static int IdAuthorization;
     }
 }
