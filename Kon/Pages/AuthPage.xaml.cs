@@ -63,16 +63,11 @@ namespace Kon.Pages
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
 
-            if (dgAuth.SelectedItems != null)
-            {
+            
                 Change = true;
                 AddEditAuthPage addEditAuthPage = new AddEditAuthPage();
                 mainFrame.Navigate(addEditAuthPage);
-            }
-            else
-            {
-                MessageBox.Show("Выберите строку");
-            }
+            
             
             
         }
