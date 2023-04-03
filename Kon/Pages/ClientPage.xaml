@@ -9,6 +9,62 @@
       Title="ClientPage">
 
     <Grid>
+        <CheckBox x:Name="chbId" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="60" 
+                  Margin="0 0 530 200" 
+                  Content="Номер" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbFst" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="80" 
+                  Margin="0 0 510 150" 
+                  Content="Имя" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbLst" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="80" 
+                  Margin="0 0 510 100" 
+                  Content="Фамилия" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbPtr" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="80" 
+                  Margin="0 0 510 50" 
+                  Content="Отчество" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbBrt" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="110" 
+                  Margin="0 0 480 0" 
+                  Content="Дата рождения" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbEml" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="80" 
+                  Margin="0 50 510 0" 
+                  Content="Почта" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbPhn" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="80" 
+                  Margin="0 100 510 0" 
+                  Content="Телефон" 
+                  Click="chb_Click"></CheckBox>
+        <CheckBox x:Name="chbAcc" 
+                  IsChecked="True" 
+                  Height="20" 
+                  Width="110" 
+                  Margin="0 150 480 0" 
+                  Content="Номер авториз." 
+                  Click="chb_Click"></CheckBox>
         <TextBlock
                 Height="20"
                 Width="60"
@@ -43,20 +99,20 @@
         </TextBox>
         <DataGrid x:Name="dgClient"
                   Height="250"
-                  Width="600"
-                  Margin="0 20 0 0"
+                  Width="490"
+                  Margin="110 20 0 0"
                   AutoGenerateColumns="False" SelectedItem="{Binding SelectedClient}"
                   ItemsSource="{Binding View}" SelectionChanged="dgClient_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" Header="Номер" Width="50"/>
-                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="80"/>
-                <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="80"/>
-                <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="80"/>
-                <DataGridTextColumn Binding="{Binding BirthDay}" Header="Дата рождения" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Email}" Header="Почта" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Phone}" Header="Телефон" Width="80"/>
-                <DataGridTextColumn Binding="{Binding IdAuthorization}" Header="Номер авторизации" Width="120"/>
-            </DataGrid.Columns>
+                <DataGridTextColumn x:Name="colId" Binding="{Binding Id}" Header="Номер" Width="50"/>
+                <DataGridTextColumn x:Name="colFname" Binding="{Binding FirstName}" Header="Имя" Width="40"/>
+                <DataGridTextColumn x:Name="colLname" Binding="{Binding LastName}" Header="Фамилия" Width="60"/>
+                <DataGridTextColumn x:Name="colPatronymic" Binding="{Binding Patronymic}" Header="Отчество" Width="60"/>
+                <DataGridTextColumn x:Name="colBirthday" Binding="{Binding BirthDay}" Header="Дата рождения" Width="100"/>
+                <DataGridTextColumn x:Name="colEmail" Binding="{Binding Email}" Header="Почта" Width="50"/>
+                <DataGridTextColumn x:Name="colPhone" Binding="{Binding Phone}" Header="Телефон" Width="60"/>
+                <DataGridTextColumn x:Name="colAcc" Binding="{Binding IdAuthorization}" Header="Номер авторизации" Width="120"/>
+               </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnDelete"
                 Content="Удалить"

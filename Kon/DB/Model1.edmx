@@ -33,7 +33,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="PhotoPath" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhotoPath" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="DrawingOrder">
           <Key>
@@ -762,7 +762,7 @@
             <End Role="Material" EntitySet="Material" />
             <End Role="Supplier" EntitySet="Supplier" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="PROC_Client_Result">
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" />
@@ -825,7 +825,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PhotoPath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Order" Relationship="KonVasModel.DrawingOrder" FromRole="Drawing" ToRole="Order" />
         </EntityType>
         <EntityType Name="Employee">
@@ -1141,7 +1141,7 @@
           <End Type="KonVasModel.Material" Role="Material" Multiplicity="*" />
           <End Type="KonVasModel.Supplier" Role="Supplier" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1424,7 +1424,7 @@
               <ScalarProperty Name="Id" ColumnName="IdMaterial" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

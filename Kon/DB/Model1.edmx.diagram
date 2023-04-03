@@ -9,11 +9,11 @@
         <EntityTypeShape EntityType="KonVasModel.Client" Width="1.5" PointX="3" PointY="12.125" />
         <EntityTypeShape EntityType="KonVasModel.Drawing" Width="1.5" PointX="3" PointY="0.75" />
         <EntityTypeShape EntityType="KonVasModel.Employee" Width="1.5" PointX="3" PointY="4.25" />
-        <EntityTypeShape EntityType="KonVasModel.Equipment" Width="1.5" PointX="5.25" PointY="4.625" />
-        <EntityTypeShape EntityType="KonVasModel.EquipmentOrder" Width="1.5" PointX="7.5" PointY="5.5" />
+        <EntityTypeShape EntityType="KonVasModel.Equipment" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="KonVasModel.EquipmentOrder" Width="1.5" PointX="7.5" PointY="8.5" />
         <EntityTypeShape EntityType="KonVasModel.Log" Width="1.5" PointX="3" PointY="8.875" />
-        <EntityTypeShape EntityType="KonVasModel.Material" Width="1.5" PointX="5.25" PointY="12.625" />
-        <EntityTypeShape EntityType="KonVasModel.MaterialOrder" Width="1.5" PointX="7.5" PointY="8.5" />
+        <EntityTypeShape EntityType="KonVasModel.Material" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="KonVasModel.MaterialOrder" Width="1.5" PointX="7.5" PointY="5.5" />
         <EntityTypeShape EntityType="KonVasModel.Order" Width="1.5" PointX="5.25" PointY="8.125" />
         <EntityTypeShape EntityType="KonVasModel.Post" Width="1.5" PointX="0.75" PointY="3.875" />
         <EntityTypeShape EntityType="KonVasModel.Supplier" Width="1.5" PointX="7.5" PointY="11.5" />

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Kon.ClassHalper.EFClass;
 
 namespace Kon.Pages
 {
@@ -23,6 +24,7 @@ namespace Kon.Pages
         public StatisticPage()
         {
             InitializeComponent();
+            dgStat.ItemsSource=context.Log.ToList().Where(i=> i.IdAthorization==IdAuthorization);
         }
     }
 }

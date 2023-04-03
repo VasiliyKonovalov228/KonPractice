@@ -17,6 +17,7 @@ using static Kon.ClassHalper.EFClass;
 using Kon.Windows;
 using Kon.ClassHalper;
 using Kon.DB;
+using System.Runtime.CompilerServices;
 
 namespace Kon.Pages
 {
@@ -29,28 +30,51 @@ namespace Kon.Pages
         {
             InitializeComponent();
             dgAuth.ItemsSource = context.Authorization.ToList();
-            
+            if (post==0)
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnDelete.Visibility = Visibility.Hidden;
+                btnEdit.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnAdd.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
+                btnEdit.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var remove = dgAuth.SelectedItems.Cast<Authorization>().ToList();
-            if (MessageBox.Show("Вы точно хотите удалить выбранные элемениы","Внимание",MessageBoxButton.YesNo,MessageBoxImage.Question)==MessageBoxResult.Yes)
+            
+                var remove = dgAuth.SelectedItems.Cast<Authorization>().ToList();
+            if (MessageBox.Show("Вы точно хотите удалить выбранные элемениы", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                
-                    context.Authorization.RemoveRange(remove);
-                    context.SaveChanges();
-                    MessageBox.Show("Данные удалены");
-                    dgAuth.ItemsSource = context.Authorization.ToList();
-                
+
+                context.Authorization.RemoveRange(remove);
+                context.SaveChanges();
+                MessageBox.Show("Данные удалены");
+                dgAuth.ItemsSource = context.Authorization.ToList();
+
             }
+            
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Change = true;
-            AddEditAuthPage addEditAuthPage = new AddEditAuthPage();
-            mainFrame.Navigate(addEditAuthPage);
+
+            if (dgAuth.SelectedItems != null)
+            {
+                Change = true;
+                AddEditAuthPage addEditAuthPage = new AddEditAuthPage();
+                mainFrame.Navigate(addEditAuthPage);
+            }
+            else
+            {
+                MessageBox.Show("Выберите строку");
+            }
+            
+            
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

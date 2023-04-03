@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kon.Windows"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800" Closed="Window_Closed">
+        Title="AdminWindow" Height="550" Width="800" Closed="Window_Closed">
     <Grid>
+        <Label 
+               x:Name="lbDate"
+               Height="40"
+               Width="150"  
+               FontSize="20"
+               Margin="650 0 0 450"
+            HorizontalContentAlignment="Center">
+
+        </Label>
+        <Label 
+               x:Name="lbTime"
+               Height="30"
+               Width="150"
+               Margin="650 0 0 400"
+             HorizontalContentAlignment="Center">
+
+        </Label>
         <Menu VerticalAlignment="Top" Height="20">
             <MenuItem Header="Таблицы">
                 <MenuItem Header="Клиент"       Click="btnItemSorce_Click"></MenuItem>
@@ -20,12 +37,13 @@
                 <MenuItem Header="Должность"    Click="btnItemSorce_Click"></MenuItem>
             </MenuItem> _
             <MenuItem Header="Статистика" Click="btnItemSorce_Click"></MenuItem>
+            <MenuItem Header="Выход" Click="btnItemSorce_Click"></MenuItem>
         </Menu>
         
         <Frame x:Name="mainFrame"
                   Height="350"
                   Width="600"
-                  Margin="0 0 50 40"
+                  Margin="0 70 50 0"
                   
                   NavigationUIVisibility="Hidden">
         </Frame>

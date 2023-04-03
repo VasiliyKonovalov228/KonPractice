@@ -31,7 +31,14 @@ namespace Kon.Windows
         {
             InitializeComponent();
             EFClass.mainFrame = mainFrame;
-           
+            lbDate.Content = DateTime.Now.ToString().Substring(0, 10);
+            lbTime.Content = DateTime.Now.ToShortTimeString();
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.IsEnabled = true;
+            timer.Tick += (o, t) => { lbDate.Content = DateTime.Now.ToString().Substring(0, 10); };
+            timer.Tick += (o, t) => { lbTime.Content = DateTime.Now.ToShortTimeString(); };
+            timer.Start();
         }
 
         private void btnItemSorce_Click(object sender, RoutedEventArgs e)
@@ -79,12 +86,16 @@ namespace Kon.Windows
                     StatisticPage statisticPage = new StatisticPage();
                     mainFrame.Navigate(statisticPage);
                     break;
+                case "Выход":
+                    this.Close();
+                    break;
             }
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            
+            try
+            {
                 Log log = new Log();
                 log.Date = Date.ToString("d");
                 log.LoginTime = Login.ToString().Substring(0, 8);
@@ -93,6 +104,11 @@ namespace Kon.Windows
                 log.IdAthorization = IdAuthorization;
                 context.Log.Add(log);
                 context.SaveChanges();
+            }
+            catch 
+            { 
+
+            }
             
         }
     }

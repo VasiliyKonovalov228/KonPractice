@@ -17,5 +17,6 @@ namespace Kon.ClassHalper
         public static DateTime Date;
         public static TimeSpan Login;
         public static int IdAuthorization;
+        public static int post;
     }
 }

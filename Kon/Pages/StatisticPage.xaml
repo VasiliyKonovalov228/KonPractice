@@ -9,6 +9,19 @@
       Title="StatisticPage">
 
     <Grid>
-        
+        <DataGrid x:Name="dgStat"
+                  Height="250"
+                  Width="600"
+                  Margin="0 20 0 0"
+                  AutoGenerateColumns="False" SelectedItem="{Binding SelectedLog}"
+                  ItemsSource="{Binding View}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Date}" Header="Дата" Width="50"/>
+                <DataGridTextColumn x:Name="Login" Binding="{Binding LoginTime}" Header="Время входа" Width="80"/>
+                <DataGridTextColumn Binding="{Binding LogoutTime}" Header="Время выхода" Width="100"/>
+                <DataGridTextColumn Binding="{Binding TimeSpentOnSystem}" Header="Время проведённое в системе" Width="180"/>
+                <DataGridTextColumn Binding="{Binding UnsuccessfullLogoutReason}" Header="Неправильный выход" Width="130"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

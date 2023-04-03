@@ -6,58 +6,47 @@
         xmlns:local="clr-namespace:Kon"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="800" Width="800">
+        Title="MainWindow" Height="550" Width="800" Closed="Window_Closed">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
+        <Label 
+               x:Name="lbDate"
+               Height="40"
+               Width="150"  
+               FontSize="20"
+               Margin="650 0 0 450"
+            HorizontalContentAlignment="Center">
 
-        <TextBlock Text="Список зданий"
-                   HorizontalAlignment="Center"
-                   FontSize="30"
-                   FontWeight="Bold"/>
+        </Label>
+        <Label 
+               x:Name="lbTime"
+               Height="30"
+               Width="150"
+               Margin="650 0 0 400"
+             HorizontalContentAlignment="Center">
 
-        <ListView x:Name="LvDrawingList" 
-                  Grid.Row="2" 
-                  d:ItemsSource="{d:SampleData ItemCount=7}"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        </Label>
+        <Menu VerticalAlignment="Top" Height="20">
+                <MenuItem Header="Таблицы">
+                    <MenuItem Header="Клиент"       Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Сотрудник"    Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Материал"     Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Поставщик"    Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Оборудование" Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Авторизация"  Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Чертёж"       Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Заказ"        Click="btnItemSorce_Click"></MenuItem>
+                    <MenuItem Header="Должность"    Click="btnItemSorce_Click"></MenuItem>
+                </MenuItem> _
+                <MenuItem Header="Статистика" Click="btnItemSorce_Click"></MenuItem>
+            <MenuItem Header="Выход" Click="btnItemSorce_Click"></MenuItem>
+            </Menu>
 
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Black"
-                            BorderThickness="1"
-                            Margin="5"
-                            Width="200"
-                            Height="250">
-                        <StackPanel>
-                            <Image Height="170"
-                                   Width="200"
-                                   Stretch="Fill">
-                                <Image.Source>
-                                    <Binding Path="PhotoPath">
-
-                                    </Binding>
-                                </Image.Source>
-                            </Image>
-                            <TextBlock Text="{Binding Title}"
-                                       FontSize="18"
-                                       FontWeight="Bold"
-                                       Margin="10 0 0 0"
-                                       TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
-    </Grid>
+            <Frame x:Name="mainFrame"
+                  Height="350"
+                  Width="600"
+                  Margin="0 70 50 0"
+                  
+                  NavigationUIVisibility="Hidden">
+            </Frame>
+        </Grid>
 </Window>

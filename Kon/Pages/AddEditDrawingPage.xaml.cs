@@ -1,8 +1,13 @@
 ﻿using Kon.DB;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity.Migrations;
+using System.Data.SqlTypes;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +21,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static Kon.ClassHalper.EFClass;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace Kon.Pages
 {
@@ -25,6 +32,8 @@ namespace Kon.Pages
     public partial class AddEditDrawingPage : Page
     {
         private DB.Drawing drawing = new DB.Drawing();
+        private string pathPhoto = null;
+        OpenFileDialog openFileDialog = new OpenFileDialog();
         public AddEditDrawingPage()
         {
             InitializeComponent();
@@ -34,9 +43,30 @@ namespace Kon.Pages
 
                 drawing.Id = context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Id;
                 tbTitle.Text = context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().Title.ToString();
-                tbPhoto.Text = context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().PhotoPath.ToString();
+                if (context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().PhotoPath is null)
+                {
+
+                }
+                else {
+
+                    
+                    using (var memorystream = new MemoryStream(context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().PhotoPath))
+                    {
+                        
+                        BitmapImage imgsource = new BitmapImage();
+                        imgsource.BeginInit();
+                        imgsource.StreamSource = memorystream;
+                        imgsource.EndInit();
+                        imgProduct.Source = imgsource;
+                    }
+                   
+                }
+               
+                
             }
+            
         }
+     
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbTitle.Text))
@@ -44,14 +74,9 @@ namespace Kon.Pages
                 MessageBox.Show("Название не может быть пустым");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(tbPhoto.Text))
-            {
-                MessageBox.Show("Ссылка не может быть пустой");
-                return;
-            }
 
             drawing.Title = tbTitle.Text;
-            drawing.PhotoPath = tbPhoto.Text;
+            drawing.PhotoPath = File.ReadAllBytes(pathPhoto) ;
             
 
             context.Drawing.AddOrUpdate(drawing);
@@ -67,6 +92,16 @@ namespace Kon.Pages
         {
             DrawPage drawPage = new DrawPage();
             mainFrame.Navigate(drawPage);
+        }
+
+        private void btnChooseImage_Click(object sender, RoutedEventArgs e)
+        {
+           
+            if (openFileDialog.ShowDialog() == true)
+            {
+                imgProduct.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+                pathPhoto = openFileDialog.FileName;
+            }
         }
     }
 }

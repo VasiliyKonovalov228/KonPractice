@@ -75,6 +75,7 @@ namespace Kon.Windows
                             {
                                 MainWindow main = new MainWindow();
                                 main.Show();
+                                post = 0;
                                 Login=DateTime.Now.TimeOfDay;
                                 IdAuthorization = authUser.Id;
                                 this.Close();
@@ -86,6 +87,7 @@ namespace Kon.Windows
                             {
                                 AdminWindow admin = new AdminWindow();
                                 admin.Show();
+                                post= 1;
                                 Login = DateTime.Now.TimeOfDay;
                                 IdAuthorization = authUser.Id;
                                 this.Close();
@@ -110,6 +112,7 @@ namespace Kon.Windows
             {
                 GenerateCaptcha();
                 MessageBox.Show("Неправельно введена капча");
+                tbCaptcha.Text = "";
             }
         }
 

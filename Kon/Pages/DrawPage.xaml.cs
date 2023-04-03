@@ -28,6 +28,18 @@ namespace Kon.Pages
         {
             InitializeComponent();
             dgDraw.ItemsSource = context.Drawing.ToList();
+            if (post == 0)
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnDelete.Visibility = Visibility.Hidden;
+                btnEdit.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnAdd.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
+                btnEdit.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
