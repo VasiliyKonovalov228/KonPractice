@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Auth" Height="450" Width="400">
+
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock
@@ -73,18 +74,21 @@
                        Width="50"
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Left"
+                       TextAlignment="Justify"
                        >
             </TextBlock>
-            <Button
+            <TextBlock
                 x:Name="btnCap"
-                Content="↺"
+                Text="↺"
                 Height="30"
                 Width="30"
                 FontSize="25"
-                Margin="150 -30 0 0"
+                Margin="150 -40 0 0"
                 Background="White"
-                BorderThickness="0" Click="btnCap_Click"
-                ></Button>
+                
+               MouseLeftButtonUp="btnCap_Click"
+               
+                ></TextBlock>
             
             <Button
                 x:Name="btnAuth"

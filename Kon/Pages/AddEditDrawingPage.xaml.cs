@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static Kon.ClassHalper.EFClass;
-using static System.Net.Mime.MediaTypeNames;
+
 
 
 namespace Kon.Pages
@@ -48,25 +49,12 @@ namespace Kon.Pages
 
                 }
                 else {
-
-                    
-                    using (var memorystream = new MemoryStream(context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().PhotoPath))
-                    {
-                        
-                        BitmapImage imgsource = new BitmapImage();
-                        imgsource.BeginInit();
-                        imgsource.StreamSource = memorystream;
-                        imgsource.EndInit();
-                        imgProduct.Source = imgsource;
-                    }
-                   
-                }
-               
-                
-            }
-            
-        }
-     
+                         ImageSourceConverter imageSourceConverter = new ImageSourceConverter();
+                        imgProduct.Source = (ImageSource)imageSourceConverter.ConvertFrom(context.Drawing.ToList().Where(i => i.Id == IdChange).FirstOrDefault().PhotoPath);
+                   }
+              }
+         }
+        
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbTitle.Text))

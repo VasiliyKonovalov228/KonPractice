@@ -36,7 +36,7 @@
                     <MenuItem Header="Чертёж"       Click="btnItemSorce_Click"></MenuItem>
                     <MenuItem Header="Заказ"        Click="btnItemSorce_Click"></MenuItem>
                     <MenuItem Header="Должность"    Click="btnItemSorce_Click"></MenuItem>
-                </MenuItem> _
+                </MenuItem> 
                 <MenuItem Header="Статистика" Click="btnItemSorce_Click"></MenuItem>
             <MenuItem Header="Выход" Click="btnItemSorce_Click"></MenuItem>
             </Menu>
@@ -44,7 +44,7 @@
             <Frame x:Name="mainFrame"
                   Height="350"
                   Width="600"
-                  Margin="0 70 50 0"
+                  Margin="0 30 50 0"
                   
                   NavigationUIVisibility="Hidden">
             </Frame>

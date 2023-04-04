@@ -29,7 +29,7 @@
                   Width="600"
                   Margin="0 20 0 0"
                   AutoGenerateColumns="False" SelectedItem="{Binding SelectedAuthorization}"
-                  ItemsSource="{Binding View}" SelectionChanged="dgAuth_SelectionChanged">
+                  ItemsSource="{Binding View}" SelectionChanged="dgAuth_SelectionChanged" LoadingRow="dgAuth_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Номер" Width="50"/>
                 <DataGridTextColumn x:Name="Login" Binding="{Binding Login}" Header="Логин" Width="80"/>

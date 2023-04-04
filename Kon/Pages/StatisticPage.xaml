@@ -20,7 +20,7 @@
                 <DataGridTextColumn x:Name="Login" Binding="{Binding LoginTime}" Header="Время входа" Width="80"/>
                 <DataGridTextColumn Binding="{Binding LogoutTime}" Header="Время выхода" Width="100"/>
                 <DataGridTextColumn Binding="{Binding TimeSpentOnSystem}" Header="Время проведённое в системе" Width="180"/>
-                <DataGridTextColumn Binding="{Binding UnsuccessfullLogoutReason}" Header="Неправильный выход" Width="130"/>
+                <DataGridTextColumn Binding="{Binding UnsuccessfulLogoutReason}" Header="Неправильный выход" Width="130"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -42,6 +42,7 @@ namespace Kon.Pages
                 btnDelete.Visibility = Visibility.Visible;
                 btnEdit.Visibility = Visibility.Visible;
             }
+            
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -101,6 +102,16 @@ namespace Kon.Pages
                 return;
             }
             dgAuth.ItemsSource=context.Authorization.ToList().Where(i=> i.Login.Contains(tbSearch.Text));
+        }
+
+        private void dgAuth_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            var Reason = true;
+
+            if (e.Row.GetIndex() <= context.Authorization.ToList().Count() - 1) Reason = Convert.ToBoolean(context.Authorization.ToList().ElementAtOrDefault(e.Row.GetIndex()).Active);
+
+            if (Reason == false) e.Row.Background = new SolidColorBrush(Colors.Red);
+            else e.Row.Background = new SolidColorBrush(Colors.White);
         }
     }
 }
